@@ -73,7 +73,6 @@ export default class Login extends React.Component {
           <React.Fragment>
             <Helmet title="Login" />
             <Header as="h1">Log in to your account</Header>
-
             <Form
               onSubmit={e => this._handleSubmit(e, context)}
               loading={loading}
@@ -93,7 +92,6 @@ export default class Login extends React.Component {
                     required
                   />
                 </Form.Field>
-
                 <Form.Field>
                   <label htmlFor="password">Password</label>
                   <Input
@@ -105,7 +103,6 @@ export default class Login extends React.Component {
                     onChange={e => this._handleChange(e)}
                   />
                 </Form.Field>
-
                 <Button type="submit" color="orange">
                   Login
                 </Button>

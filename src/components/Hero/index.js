@@ -30,6 +30,8 @@ const Hero = ({ sizes }) => (
       }}
       basic
       size="big"
+      as="a"
+      href="#products"
     >
       <Icon name="down arrow" />
       Food

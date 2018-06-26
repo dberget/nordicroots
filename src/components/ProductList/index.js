@@ -5,16 +5,7 @@ import Link from 'gatsby-link'
 
 const mapProductsToItems = products =>
   products.map(
-    ({
-      node: {
-        name,
-        originalId,
-        meta,
-        mainImage,
-        background_colour,
-        new: isNew,
-      },
-    }) => {
+    ({ node: { name, originalId, meta, mainImage, new: isNew } }) => {
       const price = meta.display_price.with_tax.formatted || null
       return {
         as: Link,
@@ -27,13 +18,7 @@ const mapProductsToItems = products =>
                 New!
               </Label>
             ) : null}
-            <Img
-              sizes={mainImage.childImageSharp.sizes}
-              alt={name}
-              style={{
-                background: `${background_colour || '#fafafa'}`,
-              }}
-            />
+            <Img sizes={mainImage.childImageSharp.sizes} alt={name} />
           </Image>
         ),
         header: name,
@@ -43,5 +28,11 @@ const mapProductsToItems = products =>
   )
 
 export default ({ products }) => (
-  <Card.Group items={mapProductsToItems(products)} itemsPerRow={3} stackable />
+  <div id="products">
+    <Card.Group
+      items={mapProductsToItems(products)}
+      itemsPerRow={3}
+      stackable
+    />
+  </div>
 )

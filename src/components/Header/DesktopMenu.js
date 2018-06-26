@@ -63,6 +63,14 @@ class DesktopMenu extends Component {
             <Menu.Menu position="right">
               <Menu.Item
                 as={Link}
+                to="/contact"
+                active={activeItem === '/contact'}
+              >
+                <Icon name="mail" />
+                Contact
+              </Menu.Item>
+              {/* <Menu.Item
+                as={Link}
                 to="/register/"
                 active={activeItem === '/register'}
               >
@@ -74,16 +82,12 @@ class DesktopMenu extends Component {
                 active={activeItem === '/login'}
               >
                 Sign in
-              </Menu.Item>
+              </Menu.Item> */}
               <Menu.Item as={Link} to="/cart/" active={activeItem === '/cart'}>
                 <ShoppingCartIcon cartCount={cartCount} name="Cart" />
               </Menu.Item>
             </Menu.Menu>
           )}
-          <Menu.Item as={Link} to="/contact" active={activeItem === '/contact'}>
-            <Icon name="mail" />
-            Contact
-          </Menu.Item>
         </Container>
       </Menu>
     )

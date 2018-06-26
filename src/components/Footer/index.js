@@ -28,11 +28,8 @@ const Footer = () => (
           <Grid.Column width={5}>
             <Header as="h4" content="Services" />
             <List>
-              <List.Item as={Link} to="/">
+              <List.Item as={Link} to="/#products">
                 Our Products
-              </List.Item>
-              <List.Item as={Link} to="/gatsbyimage/">
-                Gatsby Image Example
               </List.Item>
             </List>
           </Grid.Column>
@@ -49,6 +46,8 @@ const Footer = () => (
                   <a
                     href="https://instagram.com/nordicrootsbakingco"
                     alt="instagram link"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Instagram
                   </a>
@@ -60,6 +59,8 @@ const Footer = () => (
                   <a
                     href="https://facebook.com/nordicrootsbakingco"
                     alt="facebook link"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Facebook
                   </a>
