@@ -46,11 +46,7 @@ class Layout extends React.PureComponent {
               href={withPrefix('/favicons/favicon-16x16.png')}
             />
           </Helmet>
-          <Headroom
-            upTolerance={10}
-            downTolerance={10}
-            style={{ zIndex: '20' }}
-          >
+          <Headroom style={{ zIndex: '20', height: 80 }}>
             <Header location={location} />
           </Headroom>
           <Container>{children()}</Container>

@@ -29,7 +29,7 @@ class DesktopMenu extends Component {
     const { token, cartCount } = this.props
 
     return (
-      <Menu size="medium" borderless>
+      <Menu borderless>
         <Container>
           <Menu.Item active={activeItem === '/'} as={Link} to="/" header>
             <Logo />

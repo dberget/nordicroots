@@ -22,7 +22,6 @@ const Hero = ({ sizes }) => (
       alt="Nordic Roots"
     />
     <Button
-      Icon
       style={{
         zIndex: 10,
         position: 'absolute',
