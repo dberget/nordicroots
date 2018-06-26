@@ -1,3 +1,5 @@
+require('dotenv').config({})
+
 module.exports = {
   siteMetadata: {
     title: 'Nordic Roots Baking Co.',
@@ -10,10 +12,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-moltin',
       options: {
-        key:
-          process.env.MOLTIN_CLIENT_ID ||
-          'j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4',
-        products: ['main_image', 'brands', 'files', 'categories'],
+        key: process.env.MOLTIN_CLIENT_ID,
+        products: ['main_image', 'files', 'categories'],
       },
     },
     {

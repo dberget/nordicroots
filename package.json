@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "@moltin/sdk": "^3.10.0",
-    "gatsby": "^1.9.76",
+    "dotenv": "^6.0.0",
+    "gatsby": "^1.9.273",
     "gatsby-image": "^1.0.51",
     "gatsby-link": "^1.6.39",
     "gatsby-plugin-google-analytics": "^1.0.29",
@@ -17,9 +18,9 @@
     "gatsby-plugin-offline": "^1.0.15",
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-react-next": "^1.0.11",
-    "gatsby-plugin-sharp": "^1.6.42",
+    "gatsby-plugin-sharp": "^1.6.48",
     "gatsby-plugin-styled-components": "^2.0.11",
-    "gatsby-source-filesystem": "^1.5.31",
+    "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-sharp": "^1.6.22",
     "lodash": "^4.17.5",
     "react-headroom": "^2.2.2",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
+    "babel-plugin-inline-dotenv": "^1.1.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -38,14 +40,12 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.9.1",
-    "gh-pages": "^1.1.0",
+    "gh-pages": "^1.2.0",
     "prettier": "^1.12.0",
     "regenerator-runtime": "^0.11.1"
   },
   "homepage": "https://github.com/parmsang/gatsby-starter-ecommerce",
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "main": "n/a",
   "repository": {
@@ -53,13 +53,14 @@
     "url": "git+https://github.com/parmsang/gatsby-starter-ecommerce.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "rm -r .cache && gatsby develop",
     "lint": "eslint **/*.{js,jsx} --quiet",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+    "deploy": "gatsby build --prefix-paths",
+    "fix-semi":
+      "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }

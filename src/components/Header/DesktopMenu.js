@@ -29,11 +29,21 @@ class DesktopMenu extends Component {
     const { token, cartCount } = this.props
 
     return (
-      <Menu size="huge" borderless>
+      <Menu size="medium" borderless>
         <Container>
           <Menu.Item active={activeItem === '/'} as={Link} to="/" header>
             <Logo />
             Nordic Roots Baking Co.
+          </Menu.Item>
+          <Menu.Item active={activeItem === '/roots'} as={Link} to="/roots">
+            Our Roots
+          </Menu.Item>
+          <Menu.Item
+            active={activeItem === '/schedule'}
+            as={Link}
+            to="/schedule"
+          >
+            Event Schedule
           </Menu.Item>
           {token ? (
             <Menu.Menu position="right">
@@ -70,6 +80,10 @@ class DesktopMenu extends Component {
               </Menu.Item>
             </Menu.Menu>
           )}
+          <Menu.Item as={Link} to="/contact" active={activeItem === '/contact'}>
+            <Icon name="mail" />
+            Contact
+          </Menu.Item>
         </Container>
       </Menu>
     )

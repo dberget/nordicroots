@@ -22,7 +22,7 @@ class ProductPageTemplate extends React.PureComponent {
       sku: data.sku,
     }
 
-    if(!sizes) return null
+    if (!sizes) return null
 
     return (
       <div>
@@ -68,13 +68,7 @@ export const pageQuery = graphql`
             }
           }
           slug
-          material
-          max_watt
-          bulb_qty
-          bulb
-          new
           sku
-          finish
         }
       }
     }

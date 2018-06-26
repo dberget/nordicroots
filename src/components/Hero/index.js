@@ -1,16 +1,6 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import { Button } from 'semantic-ui-react'
-import styled from 'styled-components'
-
-const StyledButton = styled(Button)`
-  z-index: 10;
-  margin-top: -10px;
-
-  &:hover {
-    background-color: '#004c99';
-  }
-`
+import { Button, Icon } from 'semantic-ui-react'
 
 const Hero = ({ sizes }) => (
   <div
@@ -18,7 +8,6 @@ const Hero = ({ sizes }) => (
       height: '100vh',
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'center',
     }}
   >
     <Img
@@ -33,15 +22,19 @@ const Hero = ({ sizes }) => (
       alt="Nordic Roots"
     />
     <Button
-      style={{ backgroundColor: '#004c99', zIndex: 10, marginTop: '-10px' }}
-      primary
+      Icon
+      style={{
+        zIndex: 10,
+        position: 'absolute',
+        bottom: 5,
+        border: 'none',
+      }}
+      basic
       size="big"
     >
-      See the Food
+      <Icon name="down arrow" />
+      Food
     </Button>
-    <StyledButton style={{ marginTop: '-10px' }} size="big">
-      Our Event Schedule
-    </StyledButton>
   </div>
 )
 
