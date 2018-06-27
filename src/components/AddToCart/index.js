@@ -70,10 +70,12 @@ export default class AddToCart extends React.Component {
 
   render() {
     const { loading, quantity, visible, error } = this.state
+    const { productId } = this.props
     return (
       <CartContext.Consumer>
         {context => (
           <React.Fragment>
+            {console.log(productId)}
             <Input
               type="number"
               placeholder="Quantity"

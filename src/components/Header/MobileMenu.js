@@ -103,16 +103,6 @@ class MobileMenu extends Component {
             <Menu.Item as={Link} to="/cart/" active={activeItem === '/cart'}>
               <ShoppingCartIcon cartCount={cartCount} name="Cart" />
             </Menu.Item>
-            <Menu.Item position="right">
-              <BurgerButton
-                basic
-                onClick={this.handleClick}
-                aria-label="Open Navigation Menu"
-                autoFocus
-              >
-                <Icon fitted name="bars" />
-              </BurgerButton>
-            </Menu.Item>
           </Menu.Menu>
           <Portal closeOnEscape onClose={this.handleClose} open={open}>
             <StyledSegment className role="dialog" aria-label="Navigation Menu">
@@ -133,26 +123,6 @@ class MobileMenu extends Component {
                 <StyledLink to="/cart/" onClick={this.handleClose}>
                   {`Shopping Cart ${cartCount ? `(${cartCount})` : ''}`}
                 </StyledLink>
-                <StyledDivider />
-                {token ? (
-                  <StyledLink to="/myaccount/" onClick={this.handleClose}>
-                    My Account
-                  </StyledLink>
-                ) : (
-                  [
-                    <StyledLink
-                      to="/register/"
-                      onClick={this.handleClose}
-                      key={1}
-                    >
-                      Sign Up
-                    </StyledLink>,
-                    <StyledDivider key={2} />,
-                    <StyledLink to="/login/" onClick={this.handleClose} key={3}>
-                      Sign In
-                    </StyledLink>,
-                  ]
-                )}
               </StyledContainer>
             </StyledSegment>
           </Portal>

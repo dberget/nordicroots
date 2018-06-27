@@ -41,9 +41,16 @@ class DesktopMenu extends Component {
           <Menu.Item
             active={activeItem === '/schedule'}
             as={Link}
-            to="/schedule"
+            to="/community"
           >
-            Event Schedule
+            Community Events
+          </Menu.Item>
+          <Menu.Item
+            active={activeItem === '/our-schedule'}
+            as={Link}
+            to="/our-schedule"
+          >
+            Where to Find Us
           </Menu.Item>
           {token ? (
             <Menu.Menu position="right">

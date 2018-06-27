@@ -13,9 +13,9 @@ export default ({
     <Segment clearing size="large">
       <strong>Sub total:</strong> {formatted}
       <StripeCheckout
-        name="Gatsby Store"
+        name="Nordic Roots Store"
         amount={amount}
-        currency={currency || 'GBP'}
+        currency={currency || 'USD'}
         stripeKey={process.env.STRIPE_PUBLISHABLE_KEY || ''}
         shippingAddress={false}
         billingAddress
