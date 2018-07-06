@@ -11,7 +11,7 @@ const encode = data => {
 class Contact extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = { name: '', email: '', message: '', phone: '' }
   }
 
   handleChange = name => event => {
@@ -22,47 +22,66 @@ class Contact extends React.Component {
 
   handleSubmit = e => {
     console.log(this.state)
-    console.log(encode({ 'form-name': 'contact', ...this.state }))
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...this.state }),
     })
+      .then(res => res)
+      .then(res => console.log(res))
 
     e.preventDefault()
   }
 
   render() {
+    const { name, email, phone, message } = this.state
+
     return (
       <Container text>
         <Helmet title="About" />
         <Form onSubmit={this.handleSubmit} name="contact" method="POST" netlify>
           <Form.Group widths="equal">
-            <Form.Field onChange={this.handleChange('name')}>
-              <Input iconPosition="left" placeholder="Name">
+            <Form.Field>
+              <Input
+                onChange={this.handleChange('name')}
+                value={name}
+                iconPosition="left"
+                placeholder="Name"
+              >
                 <Icon name="user" />
                 <input name="name" />
               </Input>
             </Form.Field>
             <Form.Field>
-              <Input iconPosition="left" placeholder="Email">
+              <Input
+                onChange={this.handleChange('email')}
+                iconPosition="left"
+                value={email}
+                placeholder="Email"
+              >
                 <Icon name="at" />
-                <input onChange={this.handleChange('email')} name="email" />
+                <input name="email" />
               </Input>
             </Form.Field>
           </Form.Group>
           <Form.Group widths="equal">
             <Form.Field>
-              <Input iconPosition="left" placeholder="Phone Number">
+              <Input
+                onChange={this.handleChange('phone')}
+                iconPosition="left"
+                value={phone}
+                placeholder="Phone Number"
+              >
                 <Icon name="phone" />
-                <input onChange={this.handleChange('phone')} name="phone" />
+                <input name="phone" />
               </Input>
             </Form.Field>
           </Form.Group>
           <Form.TextArea
             onChange={this.handleChange('message')}
             label="Message"
+            value={message}
             name="message"
           />
           <input type="hidden" name="form-name" value="contact" />
