@@ -21,15 +21,11 @@ class Contact extends React.Component {
   }
 
   handleSubmit = e => {
-    console.log(this.state)
-
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...this.state }),
     })
-      .then(res => res)
-      .then(res => console.log(res))
 
     e.preventDefault()
   }
@@ -40,7 +36,15 @@ class Contact extends React.Component {
     return (
       <Container text>
         <Helmet title="About" />
-        <Form onSubmit={this.handleSubmit} name="contact" method="POST" netlify>
+        {/* <!-- A little help for the Netlify post-processing bots --> */}
+        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+          <input type="text" name="name" />
+          <input type="phone" name="phone" />
+          <input type="email" name="email" />
+          <textarea name="message" />
+        </form>
+
+        <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
             <Form.Field>
               <Input
@@ -48,9 +52,10 @@ class Contact extends React.Component {
                 value={name}
                 iconPosition="left"
                 placeholder="Name"
+                type="text"
               >
                 <Icon name="user" />
-                <input name="name" />
+                <input />
               </Input>
             </Form.Field>
             <Form.Field>
@@ -58,10 +63,11 @@ class Contact extends React.Component {
                 onChange={this.handleChange('email')}
                 iconPosition="left"
                 value={email}
+                type="email"
                 placeholder="Email"
               >
                 <Icon name="at" />
-                <input name="email" />
+                <input />
               </Input>
             </Form.Field>
           </Form.Group>
@@ -84,7 +90,6 @@ class Contact extends React.Component {
             value={message}
             name="message"
           />
-          <input type="hidden" name="form-name" value="contact" />
           <Button type="submit">Submit</Button>
         </Form>
       </Container>
