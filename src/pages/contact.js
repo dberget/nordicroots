@@ -8,15 +8,15 @@ const Contact = () => (
     <Form name="contact" method="POST" netlify>
       <Form.Group widths="equal">
         <Form.Field>
-          <Input iconPosition="left" name="name" placeholder="Name">
+          <Input iconPosition="left" placeholder="Name">
             <Icon name="user" />
-            <input />
+            <input name="name" />
           </Input>
         </Form.Field>
-        <Form.Field name="email">
+        <Form.Field>
           <Input iconPosition="left" placeholder="Email">
             <Icon name="at" />
-            <input />
+            <input name="email" />
           </Input>
         </Form.Field>
       </Form.Group>
@@ -24,12 +24,12 @@ const Contact = () => (
         <Form.Field>
           <Input iconPosition="left" placeholder="Phone Number">
             <Icon name="phone" />
-            <input />
+            <input name="phone" />
           </Input>
         </Form.Field>
       </Form.Group>
-      <Form.TextArea label="Message" />
-      <Button type="submit">Submit</Button>
+      <Form.TextArea label="Message" name="message" />
+      <Form.Button type="submit">Submit</Form.Button>
     </Form>
   </Container>
 )
