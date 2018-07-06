@@ -32,12 +32,6 @@ class Contact extends React.Component {
     return (
       <Container text>
         <Helmet title="About" />
-        {/* <!-- A little help for the Netlify post-processing bots --> */}
-        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-          <input type="text" name="name" />
-          <input type="email" name="email" />
-          <textarea name="message" />
-        </form>
         <Form
           style={{ width: '75%', margin: '0 auto', marginTop: '15px' }}
           onSubmit={this.handleSubmit}

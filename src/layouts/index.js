@@ -28,6 +28,7 @@ class Layout extends React.PureComponent {
             ]}
           >
             <html lang="en" />
+            {/* <!-- A little help for the Netlify post-processing bots --> */}
             <link
               rel="apple-touch-icon"
               sizes="180x180"
@@ -49,6 +50,11 @@ class Layout extends React.PureComponent {
           <Headroom style={{ zIndex: '20', height: 80 }}>
             <Header location={location} />
           </Headroom>
+          <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+            <input type="text" name="name" />
+            <input type="email" name="email" />
+            <textarea name="message" />
+          </form>
           <Container>{children()}</Container>
           <Footer />
         </CartProvider>
