@@ -11,14 +11,10 @@ const encode = data => {
 class Contact extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { name: '', email: '', message: '', phone: '' }
+    this.state = { name: '', email: '', message: '' }
   }
 
-  handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value,
-    })
-  }
+  handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   handleSubmit = e => {
     fetch('/', {
@@ -31,7 +27,7 @@ class Contact extends React.Component {
   }
 
   render() {
-    const { name, email, phone, message } = this.state
+    const { name, email, message } = this.state
 
     return (
       <Container text>
@@ -39,56 +35,37 @@ class Contact extends React.Component {
         {/* <!-- A little help for the Netlify post-processing bots --> */}
         <form name="contact" netlify netlify-honeypot="bot-field" hidden>
           <input type="text" name="name" />
-          <input type="phone" name="phone" />
           <input type="email" name="email" />
           <textarea name="message" />
         </form>
-
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group widths="equal">
-            <Form.Field>
-              <Input
-                onChange={this.handleChange('name')}
-                value={name}
-                iconPosition="left"
-                placeholder="Name"
-                name="name"
-                type="text"
-              >
-                <Icon name="user" />
-                <input />
-              </Input>
-            </Form.Field>
-            <Form.Field>
-              <Input
-                onChange={this.handleChange('email')}
-                iconPosition="left"
-                value={email}
-                name="email"
-                type="email"
-                placeholder="Email"
-              >
-                <Icon name="at" />
-                <input />
-              </Input>
-            </Form.Field>
-          </Form.Group>
-          <Form.Group widths="equal">
-            <Form.Field>
-              <Input
-                onChange={this.handleChange('phone')}
-                iconPosition="left"
-                value={phone}
-                name="phone"
-                placeholder="Phone Number"
-              >
-                <Icon name="phone" />
-                <input />
-              </Input>
-            </Form.Field>
-          </Form.Group>
+        <Form
+          style={{ width: '75%', margin: '0 auto', marginTop: '15px' }}
+          onSubmit={this.handleSubmit}
+        >
+          <Form.Input
+            onChange={this.handleChange}
+            value={name}
+            iconPosition="left"
+            placeholder="Name"
+            name="name"
+            type="text"
+          >
+            <Icon name="user" />
+            <input />
+          </Form.Input>
+          <Form.Input
+            onChange={this.handleChange}
+            iconPosition="left"
+            value={email}
+            name="email"
+            type="email"
+            placeholder="Email"
+          >
+            <Icon name="at" />
+            <input />
+          </Form.Input>
           <Form.TextArea
-            onChange={this.handleChange('message')}
+            onChange={this.handleChange}
             label="Message"
             value={message}
             name="message"
