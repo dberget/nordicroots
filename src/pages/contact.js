@@ -52,6 +52,7 @@ class Contact extends React.Component {
                 value={name}
                 iconPosition="left"
                 placeholder="Name"
+                name="name"
                 type="text"
               >
                 <Icon name="user" />
@@ -63,6 +64,7 @@ class Contact extends React.Component {
                 onChange={this.handleChange('email')}
                 iconPosition="left"
                 value={email}
+                name="email"
                 type="email"
                 placeholder="Email"
               >
@@ -77,10 +79,11 @@ class Contact extends React.Component {
                 onChange={this.handleChange('phone')}
                 iconPosition="left"
                 value={phone}
+                name="phone"
                 placeholder="Phone Number"
               >
                 <Icon name="phone" />
-                <input name="phone" />
+                <input />
               </Input>
             </Form.Field>
           </Form.Group>
